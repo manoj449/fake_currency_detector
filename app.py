@@ -27,7 +27,7 @@ def process_jpg_image(image_path):
     if img is None:
         raise ValueError(f"Could not read image from path: {image_path}")
 
-    img = cv2.resize(img, (224, 224))  # ✅ Fixed size
+    img = cv2.resize(img, (224, 224))  # ✅ Required
     img = tf.convert_to_tensor(img[:, :, :3])
     img = tf.image.convert_image_dtype(img, dtype=tf.float32)
     img = tf.expand_dims(img, axis=0)
